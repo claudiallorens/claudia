@@ -9,7 +9,7 @@
 <body>
     <div class="form-container">
         <h2>Formulario de Contacto</h2>
-        <form class="formulario" action="mailto:claudiallorensmartin@gmail.com" method="post" enctype="text/plain">
+        <form class="formulario" action="https://script.google.com/macros/s/AKfycbzFE-FUI8DFS7VW8ZPEDZlZctt8c1glp3ndY-w1bys_Kb6GOB-BtGGvT1oF9MrlJ92ihg/exec" method="POST">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required><br><br>
 
@@ -22,6 +22,18 @@
             <input type="submit" value="submit">Enviar</button>
         </form>
     </div>
-    
 </body>
+    <script>
+  document.getElementById('myForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    await fetch('URL_DE_TU_SCRIPT', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+    alert('Formulario enviado');
+  });
+</script>
 </html>
